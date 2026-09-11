@@ -1,0 +1,60 @@
+[
+  {
+    "id": "usr-001",
+    "name": "Ganesh Patil",
+    "email": "ganesh.patil.comp@jspm.edu.in",
+    "role": "STUDENT",
+    "department": "Computer Engineering",
+    "rollNumber": "COMP2021089",
+    "year": "Third Year",
+    "division": "B",
+    "phone": "+91 98765 43210",
+    "joinedAt": "2023-08-15T00:00:00.000Z",
+    "passwordHash": "$2b$10$V5ZgQVXKfY4btpughnlnP.1NzHTxsfNw.mg721XSmtfQHNOuWOelm"
+  },
+  {
+    "id": "usr-002",
+    "name": "Prof. Anil Kadam",
+    "email": "anil.kadam.comp@jspm.org",
+    "role": "TEACHER",
+    "department": "Computer Engineering",
+    "designation": "Assistant Professor",
+    "phone": "+91 98220 11223",
+    "joinedAt": "2021-06-10T00:00:00.000Z",
+    "passwordHash": "$2b$10$V5ZgQVXKfY4btpughnlnP.1NzHTxsfNw.mg721XSmtfQHNOuWOelm"
+  },
+  {
+    "id": "usr-003",
+    "name": "Dr. Suresh Mane",
+    "email": "hod.computer@jspm.edu.in",
+    "role": "HEAD",
+    "department": "Computer Engineering",
+    "designation": "Head of Department (HOD)",
+    "phone": "+91 94225 99887",
+    "joinedAt": "2018-03-01T00:00:00.000Z",
+    "passwordHash": "$2b$10$V5ZgQVXKfY4btpughnlnP.1NzHTxsfNw.mg721XSmtfQHNOuWOelm"
+  },
+  {
+    "id": "usr-004",
+    "name": "Dr. Rajesh Deshmukh",
+    "email": "principal@jspm.edu.in",
+    "role": "SUPER_ADMIN",
+    "department": "Administration",
+    "designation": "Principal & Super Administrator",
+    "phone": "+91 90110 00001",
+    "joinedAt": "2015-01-01T00:00:00.000Z",
+    "passwordHash": "$2b$10$V5ZgQVXKfY4btpughnlnP.1NzHTxsfNw.mg721XSmtfQHNOuWOelm"
+  },
+  {
+    "name": "Ankur Patil",
+    "email": "ankurpatil723@gmail.com",
+    "role": "STUDENT",
+    "department": "Computer Engineering",
+    "rollNumber": "COMP2021564",
+    "year": "Third Year",
+    "division": "A",
+    "passwordHash": "$2b$10$yqdG3jaT3gqaG0ytKq3WuukxHFwvKuhaBmkRs8JIdTCqrx7yGjKSq",
+    "id": "usr-1788484587852",
+    "joinedAt": "2026-09-04T01:16:27.852Z"
+  }
+]

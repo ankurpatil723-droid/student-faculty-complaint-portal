@@ -1,0 +1,788 @@
+[
+  {
+    "id": "COMP-101",
+    "title": "Broken Classroom Door in Room 405",
+    "description": "The main entrance door of Classroom 405 (Fourth Floor, B-Wing) has a broken hinge and handle, preventing proper closing during lectures. Loud corridor noise interferes with class instruction. Immediate repair or hinge replacement is requested.",
+    "category": "Infrastructure",
+    "subcategory": "Classrooms",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "assignedTo": "Dr. Suresh Mane",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-28T10:00:00Z",
+    "updatedAt": "2026-08-28T10:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214206-rgqwai",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "changedAt": "2026-08-28T10:00:00.000Z",
+        "notes": "Complaint submitted"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Broken Classroom Door in Room 405\". The main entrance door of Classroom 405 (Fourth Floor, B-Wing) has a broken hinge and handle, preventing proper closing …",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.211Z",
+        "processingTimeMs": 3
+      }
+    }
+  },
+  {
+    "id": "COMP-104",
+    "title": "Lab 5 Projector VGA Connector Broken",
+    "description": "The projector in Laboratory 5 (Ground Floor, A-Wing) has a broken VGA connector which makes it impossible to display teaching materials during practicals. Multiple batches are being affected daily. Immediate replacement is requested.",
+    "category": "Infrastructure",
+    "subcategory": "Laboratories",
+    "priority": "MEDIUM",
+    "status": "UNDER_REVIEW",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "assignedTo": "Prof. Anil Kadam",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-18T09:30:00Z",
+    "updatedAt": "2026-08-19T11:00:00Z",
+    "comments": [
+      {
+        "id": "cmt-01",
+        "authorId": "usr-003",
+        "authorName": "Prof. Anil Kadam",
+        "authorRole": "TEACHER",
+        "content": "Acknowledged. I have forwarded this to the infrastructure committee. Replacement will be arranged within 3 working days.",
+        "isAnonymous": false,
+        "createdAt": "2026-08-19T11:00:00Z"
+      }
+    ],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214211-tff66g",
+        "complaintId": "COMP-104",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "changedAt": "2026-08-18T09:30:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214211-ke6uw0",
+        "complaintId": "COMP-104",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-19T11:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Laboratories",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Lab 5 Projector VGA Connector Broken\". The projector in Laboratory 5 (Ground Floor, A-Wing) has a broken VGA connector which makes it impossible to display tea…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.213Z",
+        "processingTimeMs": 2
+      }
+    }
+  },
+  {
+    "id": "COMP-098",
+    "title": "Discrepancy in Mid-Sem Marks Sheet",
+    "description": "My mid-semester marks in the subject \"Data Structures and Algorithms\" (DSA) show 12/25 but my answer sheet clearly shows correct answers scoring at least 18/25. I request a re-evaluation of my answer sheet under the supervision of the subject faculty.",
+    "category": "Academics",
+    "subcategory": "Marks/Results",
+    "priority": "HIGH",
+    "status": "ASSIGNED",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "assignedTo": "Dr. Suresh Mane",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-15T14:00:00Z",
+    "updatedAt": "2026-08-16T09:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214214-9psnws",
+        "complaintId": "COMP-098",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "changedAt": "2026-08-15T14:00:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214214-ypt3i9",
+        "complaintId": "COMP-098",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-16T09:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Discrepancy in Mid-Sem Marks Sheet\". My mid-semester marks in the subject \"Data Structures and Algorithms\" (DSA) show 12/25 but my answer sheet clearly shows…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Academic Compliance Audit"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.9,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.91
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.215Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-081",
+    "title": "Water Cooler 2nd Floor Filter Replacement",
+    "description": "The water cooler on the second floor near the library has a clogged filter. The water tastes bad and appears discolored. Several students have complained of stomach issues.",
+    "category": "Infrastructure",
+    "subcategory": "Electricity/Water",
+    "priority": "LOW",
+    "status": "RESOLVED",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-10T10:00:00Z",
+    "updatedAt": "2026-08-12T15:00:00Z",
+    "resolvedAt": "2026-08-12T15:00:00Z",
+    "comments": [
+      {
+        "id": "cmt-02",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "Filter has been replaced and water quality tested. Issue resolved. Closing this complaint.",
+        "isAnonymous": false,
+        "createdAt": "2026-08-12T15:00:00Z"
+      }
+    ],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214216-la66rh",
+        "complaintId": "COMP-081",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "changedAt": "2026-08-10T10:00:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214216-91t1o1",
+        "complaintId": "COMP-081",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-12T15:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Water Cooler 2nd Floor Filter Replacement\". The water cooler on the second floor near the library has a clogged filter. The water tastes bad and appears discolored.…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.217Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-105",
+    "title": "Lab 3 Air Conditioning Leakage",
+    "description": "The air conditioning unit in Laboratory 3 (First Floor, B-Wing) is leaking water onto the floor causing a slip hazard and damaging electrical equipment nearby. Urgent attention is required.",
+    "category": "Infrastructure",
+    "subcategory": "Laboratories",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-002",
+    "complainantName": "Prof. Anil Kadam",
+    "complainantRole": "TEACHER",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-19T08:00:00Z",
+    "updatedAt": "2026-08-19T08:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214217-uydzqq",
+        "complaintId": "COMP-105",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-002",
+        "changedByName": "Prof. Anil Kadam",
+        "changedAt": "2026-08-19T08:00:00.000Z",
+        "notes": "Complaint submitted"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Laboratories",
+      "suggestedPriority": "URGENT",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Lab 3 Air Conditioning Leakage\". The air conditioning unit in Laboratory 3 (First Floor, B-Wing) is leaking water onto the floor causing a slip hazard an…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "CRITICAL",
+        "sentimentScore": -0.8,
+        "detectedEmotions": [
+          "high_concern",
+          "urgent_call_to_action"
+        ],
+        "riskFlags": [
+          "Infrastructure & Safety Hazard"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 1
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.218Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-095",
+    "title": "Damaged Classroom Whiteboard in Room 302",
+    "description": "The whiteboard in Room 302 is severely damaged with a broken surface. Writing is not visible properly from more than half the classroom. Students are having difficulty following lectures.",
+    "category": "Infrastructure",
+    "subcategory": "Classrooms",
+    "priority": "LOW",
+    "status": "RESOLVED",
+    "isAnonymous": false,
+    "complainantId": "usr-002",
+    "complainantName": "Prof. Anil Kadam",
+    "complainantRole": "TEACHER",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-11T09:30:00Z",
+    "updatedAt": "2026-08-13T14:00:00Z",
+    "resolvedAt": "2026-08-13T14:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214218-1ng00d",
+        "complaintId": "COMP-095",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-002",
+        "changedByName": "Prof. Anil Kadam",
+        "changedAt": "2026-08-11T09:30:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214218-ue8b2w",
+        "complaintId": "COMP-095",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-13T14:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Damaged Classroom Whiteboard in Room 302\". The whiteboard in Room 302 is severely damaged with a broken surface. Writing is not visible properly from more than hal…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.9,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.91
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.219Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-072",
+    "title": "Unfair Evaluation Allegation",
+    "description": "Confidential complaint regarding alleged bias in the evaluation process for internal assessment. Identity withheld for safety. Evidence can be provided upon request to super admin.",
+    "category": "Academics",
+    "subcategory": "Marks/Results",
+    "priority": "URGENT",
+    "status": "ESCALATED",
+    "isAnonymous": true,
+    "complainantId": "usr-anon",
+    "complainantName": "Anonymous Teacher",
+    "complainantRole": "TEACHER",
+    "assignedTo": "Director Office",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-05T16:00:00Z",
+    "updatedAt": "2026-08-08T10:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214219-g5ll2e",
+        "complaintId": "COMP-072",
+        "newStatus": "ESCALATED",
+        "changedBy": "usr-anon",
+        "changedByName": "Anonymous Teacher",
+        "changedAt": "2026-08-05T16:00:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214219-38vpzv",
+        "complaintId": "COMP-072",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "ESCALATED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-08T10:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Anti-Ragging & Harassment",
+      "suggestedSubcategory": "Harassment",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Anti-Ragging & Safety Cell",
+      "summary": "Grievance regarding \"Unfair Evaluation Allegation\". Confidential complaint regarding alleged bias in the evaluation process for internal assessment. Identity withheld for s…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Academic Compliance Audit"
+        ]
+      },
+      "suggestedResponse": "Urgent confidential review initiated. The Anti-Ragging Cell has logged this case. Identity protection measures are fully active.",
+      "suggestedResolutionAction": {
+        "actionType": "SCHEDULE_INVESTIGATION",
+        "description": "Assign case officer from Anti-Ragging & Safety Cell to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.96,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.96,
+        "overallConfidence": 0.93
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.221Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-067",
+    "title": "Scholarship Portal Access Issue",
+    "description": "Several students from the OBC category are unable to log into the scholarship portal due to a system error. The deadline is approaching and immediate technical support is needed.",
+    "category": "Finance & Fees",
+    "subcategory": "Scholarship",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "isAnonymous": false,
+    "complainantId": "usr-anon2",
+    "complainantName": "Anonymous Student",
+    "complainantRole": "STUDENT",
+    "assignedTo": "Prof. Anil Kadam",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-07T11:00:00Z",
+    "updatedAt": "2026-08-09T14:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214221-ah1dyq",
+        "complaintId": "COMP-067",
+        "newStatus": "IN_PROGRESS",
+        "changedBy": "usr-anon2",
+        "changedByName": "Anonymous Student",
+        "changedAt": "2026-08-07T11:00:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214221-pvmeyi",
+        "complaintId": "COMP-067",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "IN_PROGRESS",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-09T14:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Scholarship Portal Access Issue\". Several students from the OBC category are unable to log into the scholarship portal due to a system error. The deadline…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "SLA Breach Risk"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.222Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-060",
+    "title": "Canteen Food Quality Complaint",
+    "description": "Food quality in the main canteen has deteriorated significantly. Multiple students have complained about stale food being served during lunch hours between 1PM-2PM.",
+    "category": "Hostel & Canteen",
+    "subcategory": "Food Quality",
+    "priority": "MEDIUM",
+    "status": "CLOSED",
+    "isAnonymous": false,
+    "complainantId": "usr-004",
+    "complainantName": "Priya Sharma",
+    "complainantRole": "STUDENT",
+    "department": "Information Technology",
+    "createdAt": "2026-07-28T13:00:00Z",
+    "updatedAt": "2026-08-01T09:00:00Z",
+    "resolvedAt": "2026-08-01T09:00:00Z",
+    "closedAt": "2026-08-01T09:00:00Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990214222-chl7ws",
+        "complaintId": "COMP-060",
+        "newStatus": "CLOSED",
+        "changedBy": "usr-004",
+        "changedByName": "Priya Sharma",
+        "changedAt": "2026-07-28T13:00:00.000Z",
+        "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1787990214222-c6cw3p",
+        "complaintId": "COMP-060",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "CLOSED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "changedAt": "2026-08-01T09:00:00.000Z",
+        "notes": "Status updated by HOD"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Hostel & Canteen",
+      "suggestedSubcategory": "Food Quality",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Canteen Food Quality Complaint\". Food quality in the main canteen has deteriorated significantly. Multiple students have complained about stale food bein…",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledge receiving grievance \"Canteen Food Quality Complaint\". Inspection will be scheduled with Campus Infrastructure & Maintenance within 48 hours.",
+      "suggestedResolutionAction": {
+        "actionType": "SCHEDULE_INVESTIGATION",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.91,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.9
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:56:54.223Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-101",
+    "title": "Lab 3 Air Conditioning Unit Leaking Water",
+    "description": "Lab 3 Air Conditioning Unit Leaking Water",
+    "category": "Infrastructure",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-001",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-08-29T07:57:56.361Z",
+    "updatedAt": "2026-08-29T07:57:56.361Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1787990276365-6h1x2t",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-001",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-08-29T07:57:56.361Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Laboratories",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Lab 3 Air Conditioning Unit Leaking Water\". Lab 3 Air Conditioning Unit Leaking Water",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-105",
+          "title": "Lab 3 Air Conditioning Leakage",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Infrastructure & Safety Hazard"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-08-29T07:57:56.365Z",
+        "processingTimeMs": 2
+      }
+    }
+  }
+]

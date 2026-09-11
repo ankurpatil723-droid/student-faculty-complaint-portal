@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rscoe-web-app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=postgresql://rscoe_admin:ProductionSecret123!@postgres:5432/rscoe_grievance_db?schema=public
+      - JWT_SECRET=prod_super_secret_jwt_key_rscoe_2026_change_in_secrets_manager
+      - NEXTAUTH_URL=http://localhost:3000
+      - AWS_REGION=ap-south-1
+      - S3_BUCKET_NAME=rscoe-grievance-attachments-prod
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: rscoe-postgres-db
+    restart: always
+    environment:
+      POSTGRES_USER: rscoe_admin
+      POSTGRES_PASSWORD: ProductionSecret123!
+      POSTGRES_DB: rscoe_grievance_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rscoe_admin -d rscoe_grievance_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+    driver: local
