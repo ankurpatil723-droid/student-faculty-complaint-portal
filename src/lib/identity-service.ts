@@ -15,17 +15,22 @@
 
 import type { Role, IdentityDisclosureAuditLog } from './types';
 import type { StoredComplaint } from './complaint-store';
+import { readJson, writeJson } from './persist';
+
+const AUDIT_LOGS_FILE = 'audit_logs.json';
+
+function loadAuditLogs(): IdentityDisclosureAuditLog[] {
+  return readJson<IdentityDisclosureAuditLog[]>(AUDIT_LOGS_FILE, []);
+}
+
+function saveAuditLogs(logs: IdentityDisclosureAuditLog[]): void {
+  writeJson(AUDIT_LOGS_FILE, logs);
+}
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 /** Roles that are allowed to request identity disclosure. */
 const AUTHORIZED_ROLES: Role[] = ['HEAD', 'SUPER_ADMIN'];
-
-// ─── In-memory audit log ─────────────────────────────────────────────────────
-// In a production system this would be written to a database.
-// Entries are append-only and never mutated after creation.
-
-const auditLogs: IdentityDisclosureAuditLog[] = [];
 
 function generateAuditId(): string {
   return `audit-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
@@ -164,7 +169,9 @@ export function disclosedIdentity(
     disclosureReason: reason,
     disclosedAt: new Date().toISOString(),
   };
-  auditLogs.push(Object.freeze(entry) as IdentityDisclosureAuditLog);
+  const currentLogs = loadAuditLogs();
+  currentLogs.push(Object.freeze(entry) as IdentityDisclosureAuditLog);
+  saveAuditLogs(currentLogs);
 
   // 5. Return identity data
   return {
@@ -182,7 +189,7 @@ export function disclosedIdentity(
  * Only callable by SUPER_ADMIN (enforced by the API route, not here).
  */
 export function getAllAuditLogs(): Readonly<IdentityDisclosureAuditLog>[] {
-  return [...auditLogs];
+  return loadAuditLogs();
 }
 
 /**
@@ -190,19 +197,19 @@ export function getAllAuditLogs(): Readonly<IdentityDisclosureAuditLog>[] {
  * Allows a HEAD to see their own disclosure history.
  */
 export function getAuditLogsByActor(actorId: string): Readonly<IdentityDisclosureAuditLog>[] {
-  return auditLogs.filter((log) => log.actorId === actorId);
+  return loadAuditLogs().filter((log) => log.actorId === actorId);
 }
 
 /**
  * Returns audit log entries for a specific complaint.
  */
 export function getAuditLogsByComplaint(complaintId: string): Readonly<IdentityDisclosureAuditLog>[] {
-  return auditLogs.filter((log) => log.complaintId === complaintId);
+  return loadAuditLogs().filter((log) => log.complaintId === complaintId);
 }
 
 /**
  * Returns the total count of audit log entries. Useful for tests.
  */
 export function getAuditLogCount(): number {
-  return auditLogs.length;
+  return loadAuditLogs().length;
 }

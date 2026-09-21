@@ -56,7 +56,8 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
       return badRequest(`Cannot transition from ${complaint.status} to ${status}.`);
     }
 
-    updateComplaintStatus(id, status, session.userId, session.name, notes || 'Status updated');
+    const updated = updateComplaintStatus(id, status, session.userId, session.name, notes || 'Status updated');
+    if (updated) Object.assign(complaint, updated);
   }
 
   if (priority) {
@@ -76,7 +77,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     complaint.updatedAt = new Date().toISOString();
   }
 
-  return NextResponse.json({ complaint });
+  return NextResponse.json({ complaint: getComplaintById(id) || complaint });
 }
 
 export async function DELETE(req: NextRequest, { params }: { params: { id: string } | Promise<{ id: string }> }) {

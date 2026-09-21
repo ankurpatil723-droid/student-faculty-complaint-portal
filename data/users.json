@@ -10,7 +10,7 @@
     "division": "B",
     "phone": "+91 98765 43210",
     "joinedAt": "2023-08-15T00:00:00.000Z",
-    "passwordHash": "$2b$10$V5ZgQVXKfY4btpughnlnP.1NzHTxsfNw.mg721XSmtfQHNOuWOelm"
+    "passwordHash": "$2b$10$KzWnZR45k.vObdhk.B1jtO03rsfJnUqQ55ndawPoLXt7Dgv9GCbAG"
   },
   {
     "id": "usr-002",
@@ -56,5 +56,56 @@
     "passwordHash": "$2b$10$yqdG3jaT3gqaG0ytKq3WuukxHFwvKuhaBmkRs8JIdTCqrx7yGjKSq",
     "id": "usr-1788484587852",
     "joinedAt": "2026-09-04T01:16:27.852Z"
+  },
+  {
+    "name": "Test Student Verifier",
+    "email": "test.student.verify@jspm.edu.in",
+    "role": "STUDENT",
+    "department": "Computer Engineering",
+    "rollNumber": "COMP2024683",
+    "year": "Third Year",
+    "division": "A",
+    "passwordHash": "$2b$10$g5v7GBQiZlCDCUsEoeXHRe48njHjsZIMjiJJDz7AG.7XdvTr7miOm",
+    "id": "usr-1789235495974",
+    "joinedAt": "2026-09-12T17:51:35.974Z"
+  },
+  {
+    "name": "Prof. Test Teacher",
+    "email": "test.teacher.verify@jspm.edu.in",
+    "role": "TEACHER",
+    "department": "Computer Engineering",
+    "designation": "Assistant Professor",
+    "passwordHash": "$2b$10$jbASUMFv.YKTZWRtHadnAeRjWTtCz.EO0jlSLzy6qPj7Z7Yz9gE1i",
+    "id": "usr-1789235497010",
+    "joinedAt": "2026-09-12T17:51:37.010Z"
+  },
+  {
+    "name": "Dr. Test Head",
+    "email": "hod.computer.verify@jspm.edu.in",
+    "role": "HEAD",
+    "department": "Computer Engineering",
+    "designation": "Department Head",
+    "passwordHash": "$2b$10$NxdArVggn4eO2zKqb6zg6ehdPFrXFsyX9uUjXmA0nD0iWJHBu/Pii",
+    "id": "usr-1789235497134",
+    "joinedAt": "2026-09-12T17:51:37.134Z"
+  },
+  {
+    "name": "Principal Super Admin",
+    "email": "principal.verify@jspm.edu.in",
+    "role": "SUPER_ADMIN",
+    "department": "Computer Engineering",
+    "designation": "Department Head",
+    "passwordHash": "$2b$10$a80IUQCfN9gGki1DD0P.LOZbbPXOZqsDwLJYhmDK.S1.FD3tSLwry",
+    "id": "usr-1789235497284",
+    "joinedAt": "2026-09-12T17:51:37.284Z"
+  },
+  {
+    "name": "New Student User",
+    "email": "newstudent_1789235773646@jspm.edu.in",
+    "role": "STUDENT",
+    "department": "Information Technology",
+    "passwordHash": "$2b$10$oweXqSPDVl1SlV7JhtdkW.jwHoX0D1zK3gfZQmXTPYdjMjmh1gGIC",
+    "id": "usr-1789235773724",
+    "joinedAt": "2026-09-12T17:56:13.724Z"
   }
 ]

@@ -6,18 +6,52 @@
     "category": "Infrastructure",
     "subcategory": "Classrooms",
     "priority": "HIGH",
-    "status": "SUBMITTED",
+    "status": "ASSIGNED",
     "isAnonymous": false,
     "complainantId": "usr-001",
     "complainantName": "Ganesh Patil",
     "complainantRole": "STUDENT",
-    "assignedTo": "Dr. Suresh Mane",
+    "assignedTo": "usr-002",
     "department": "Computer Engineering",
     "createdAt": "2026-08-28T10:00:00Z",
-    "updatedAt": "2026-08-28T10:00:00Z",
-    "comments": [],
+    "updatedAt": "2026-09-12T18:11:03.730Z",
+    "comments": [
+      {
+        "id": "cmt-1789236663730-lrvxre",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:11:03.730Z"
+      }
+    ],
     "attachments": [],
-    "assignments": [],
+    "assignments": [
+      {
+        "id": "asgn-1789235705111-2yfyxo",
+        "complaintId": "COMP-101",
+        "assignedBy": "usr-1789235497134",
+        "assignedTo": "usr-002",
+        "notes": "Please look into exam schedule issue.",
+        "assignedAt": "2026-09-12T17:55:05.111Z"
+      },
+      {
+        "id": "asgn-1789235731117-ey9dvy",
+        "complaintId": "COMP-101",
+        "assignedBy": "usr-1789235497134",
+        "assignedTo": "usr-002",
+        "notes": "Please look into exam schedule issue.",
+        "assignedAt": "2026-09-12T17:55:31.117Z"
+      },
+      {
+        "id": "asgn-1789236656885-340i5s",
+        "complaintId": "COMP-101",
+        "assignedBy": "usr-003",
+        "assignedTo": "usr-002",
+        "assignedAt": "2026-09-12T18:10:56.885Z"
+      }
+    ],
     "statusHistory": [
       {
         "id": "hist-1787990214206-rgqwai",
@@ -27,6 +61,86 @@
         "changedByName": "Ganesh Patil",
         "changedAt": "2026-08-28T10:00:00.000Z",
         "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1789235704740-p1y8bc",
+        "complaintId": "COMP-101",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "Dr. Test Head",
+        "notes": "Reviewing grievance details.",
+        "changedAt": "2026-09-12T17:55:04.740Z"
+      },
+      {
+        "id": "hist-1789235705111-jwhxsm",
+        "complaintId": "COMP-101",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "usr-1789235497134",
+        "notes": "Please look into exam schedule issue.",
+        "changedAt": "2026-09-12T17:55:05.111Z"
+      },
+      {
+        "id": "hist-1789235705203-w1qlr7",
+        "complaintId": "COMP-101",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "Dr. Test Head",
+        "notes": "Exam schedule updated and communicated to student.",
+        "changedAt": "2026-09-12T17:55:05.203Z"
+      },
+      {
+        "id": "hist-1789235705263-tnxwer",
+        "complaintId": "COMP-101",
+        "oldStatus": "RESOLVED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Issue is not fully resolved, exam slot still clashes.",
+        "changedAt": "2026-09-12T17:55:05.263Z"
+      },
+      {
+        "id": "hist-1789235731117-5f0d5y",
+        "complaintId": "COMP-101",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "usr-1789235497134",
+        "notes": "Please look into exam schedule issue.",
+        "changedAt": "2026-09-12T17:55:31.117Z"
+      },
+      {
+        "id": "hist-1789235731151-ulnju3",
+        "complaintId": "COMP-101",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "Dr. Test Head",
+        "notes": "Exam schedule updated and communicated to student.",
+        "changedAt": "2026-09-12T17:55:31.151Z"
+      },
+      {
+        "id": "hist-1789235731220-hrdew1",
+        "complaintId": "COMP-101",
+        "oldStatus": "RESOLVED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Issue is not fully resolved, exam slot still clashes.",
+        "changedAt": "2026-09-12T17:55:31.220Z"
+      },
+      {
+        "id": "hist-1789236627762-mgvdpc",
+        "complaintId": "COMP-101",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "notes": "Status updated",
+        "changedAt": "2026-09-12T18:10:27.762Z"
       }
     ],
     "aiIntelligence": {
@@ -66,7 +180,8 @@
         "timestamp": "2026-08-29T07:56:54.211Z",
         "processingTimeMs": 3
       }
-    }
+    },
+    "resolvedAt": "2026-09-12T17:55:31.151Z"
   },
   {
     "id": "COMP-104",
@@ -479,7 +594,7 @@
     "category": "Academics",
     "subcategory": "Marks/Results",
     "priority": "URGENT",
-    "status": "ESCALATED",
+    "status": "UNDER_REVIEW",
     "isAnonymous": true,
     "complainantId": "usr-anon",
     "complainantName": "Anonymous Teacher",
@@ -487,10 +602,46 @@
     "assignedTo": "Director Office",
     "department": "Computer Engineering",
     "createdAt": "2026-08-05T16:00:00Z",
-    "updatedAt": "2026-08-08T10:00:00Z",
-    "comments": [],
+    "updatedAt": "2026-09-12T18:20:03.124Z",
+    "comments": [
+      {
+        "id": "cmt-1789236523810-f4p1s2",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "Urgent confidential review initiated. The Anti-Ragging Cell has logged this case. Identity protection measures are fully active.",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:08:43.810Z"
+      },
+      {
+        "id": "cmt-1789237082816-qm079e",
+        "authorId": "usr-004",
+        "authorName": "Dr. Rajesh Deshmukh",
+        "authorRole": "SUPER_ADMIN",
+        "content": "Urgent confidential review initiated. The Anti-Ragging Cell has logged this case. Identity protection measures are fully active.",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:18:02.816Z"
+      },
+      {
+        "id": "cmt-1789237203124-7e8v6w",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "okay sir",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:20:03.124Z"
+      }
+    ],
     "attachments": [],
-    "assignments": [],
+    "assignments": [
+      {
+        "id": "asgn-1789236514681-y969mm",
+        "complaintId": "COMP-072",
+        "assignedBy": "usr-003",
+        "assignedTo": "Director Office",
+        "assignedAt": "2026-09-12T18:08:34.681Z"
+      }
+    ],
     "statusHistory": [
       {
         "id": "hist-1787990214219-g5ll2e",
@@ -510,6 +661,16 @@
         "changedByName": "Dr. Suresh Mane",
         "changedAt": "2026-08-08T10:00:00.000Z",
         "notes": "Status updated by HOD"
+      },
+      {
+        "id": "hist-1789237046586-lav8xy",
+        "complaintId": "COMP-072",
+        "oldStatus": "ESCALATED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-004",
+        "changedByName": "Dr. Rajesh Deshmukh",
+        "notes": "Status updated",
+        "changedAt": "2026-09-12T18:17:26.586Z"
       }
     ],
     "aiIntelligence": {
@@ -782,6 +943,1315 @@
         "version": "1.4.0",
         "timestamp": "2026-08-29T07:57:56.365Z",
         "processingTimeMs": 2
+      }
+    }
+  },
+  {
+    "id": "COMP-101",
+    "title": "Verification LifeCycle Test Complaint",
+    "description": "Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Test Student Verifier",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:51:50.475Z",
+    "updatedAt": "2026-09-12T17:51:50.475Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235510476-xogtj1",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:51:50.475Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification LifeCycle Test Complaint\". Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:51:50.476Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-102",
+    "title": "Verification Anonymous Complaint",
+    "description": "Testing anonymous complaint identity concealment and reveal workflow.",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:51:50.540Z",
+    "updatedAt": "2026-09-12T17:55:31.932Z",
+    "comments": [],
+    "attachments": [
+      {
+        "id": "att-1789235706261-vyjcf2",
+        "complaintId": "COMP-102",
+        "fileName": "test-evidence-report.pdf",
+        "fileType": "application/pdf",
+        "fileSize": 1048576,
+        "uploadedBy": "usr-1789235495974",
+        "uploadedAt": "2026-09-12T17:55:06.261Z"
+      },
+      {
+        "id": "att-1789235731932-m9fo51",
+        "complaintId": "COMP-102",
+        "fileName": "test-evidence-report.pdf",
+        "fileType": "application/pdf",
+        "fileSize": 1048576,
+        "uploadedBy": "usr-1789235495974",
+        "uploadedAt": "2026-09-12T17:55:31.932Z"
+      }
+    ],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235510540-ssim70",
+        "complaintId": "COMP-102",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:51:50.540Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification Anonymous Complaint\". Testing anonymous complaint identity concealment and reveal workflow.",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:51:50.540Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-101",
+    "title": "Verification LifeCycle Test Complaint",
+    "description": "Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Test Student Verifier",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:53:46.481Z",
+    "updatedAt": "2026-09-12T17:53:46.481Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235626482-e2y8bd",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:53:46.481Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification LifeCycle Test Complaint\". Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:53:46.482Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-102",
+    "title": "Verification Anonymous Complaint",
+    "description": "Testing anonymous complaint identity concealment and reveal workflow.",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:53:46.512Z",
+    "updatedAt": "2026-09-12T17:53:46.512Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235626512-a0o7rr",
+        "complaintId": "COMP-102",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:53:46.512Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification Anonymous Complaint\". Testing anonymous complaint identity concealment and reveal workflow.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:53:46.512Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-101",
+    "title": "Verification LifeCycle Test Complaint",
+    "description": "Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Test Student Verifier",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:04.429Z",
+    "updatedAt": "2026-09-12T17:55:04.429Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235704430-xddw2v",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:04.429Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification LifeCycle Test Complaint\". Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:04.430Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-102",
+    "title": "Verification Anonymous Complaint",
+    "description": "Testing anonymous complaint identity concealment and reveal workflow.",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:04.463Z",
+    "updatedAt": "2026-09-12T17:55:04.463Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235704464-138bhy",
+        "complaintId": "COMP-102",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:04.463Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification Anonymous Complaint\". Testing anonymous complaint identity concealment and reveal workflow.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:04.463Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-101",
+    "title": "Verification LifeCycle Test Complaint",
+    "description": "Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Test Student Verifier",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:30.959Z",
+    "updatedAt": "2026-09-12T17:55:30.959Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235730960-ste649",
+        "complaintId": "COMP-101",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:30.959Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification LifeCycle Test Complaint\". Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:30.960Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-102",
+    "title": "Verification Anonymous Complaint",
+    "description": "Testing anonymous complaint identity concealment and reveal workflow.",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:31.017Z",
+    "updatedAt": "2026-09-12T17:55:31.017Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235731017-v4ajsp",
+        "complaintId": "COMP-102",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:31.017Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification Anonymous Complaint\". Testing anonymous complaint identity concealment and reveal workflow.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:31.017Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-106",
+    "title": "Verification LifeCycle Test Complaint",
+    "description": "Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "UNDER_REVIEW",
+    "isAnonymous": false,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Test Student Verifier",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:53.588Z",
+    "updatedAt": "2026-09-12T17:55:53.806Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [
+      {
+        "id": "asgn-1789235753708-mbnu40",
+        "complaintId": "COMP-106",
+        "assignedBy": "usr-1789235497134",
+        "assignedTo": "usr-002",
+        "notes": "Please look into exam schedule issue.",
+        "assignedAt": "2026-09-12T17:55:53.708Z"
+      }
+    ],
+    "statusHistory": [
+      {
+        "id": "hist-1789235753589-udws8h",
+        "complaintId": "COMP-106",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:53.588Z"
+      },
+      {
+        "id": "hist-1789235753668-knxcy5",
+        "complaintId": "COMP-106",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "Dr. Test Head",
+        "notes": "Reviewing grievance details.",
+        "changedAt": "2026-09-12T17:55:53.668Z"
+      },
+      {
+        "id": "hist-1789235753708-ndziad",
+        "complaintId": "COMP-106",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "usr-1789235497134",
+        "notes": "Please look into exam schedule issue.",
+        "changedAt": "2026-09-12T17:55:53.708Z"
+      },
+      {
+        "id": "hist-1789235753743-7ubm39",
+        "complaintId": "COMP-106",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-1789235497134",
+        "changedByName": "Dr. Test Head",
+        "notes": "Exam schedule updated and communicated to student.",
+        "changedAt": "2026-09-12T17:55:53.743Z"
+      },
+      {
+        "id": "hist-1789235753806-3czvkh",
+        "complaintId": "COMP-106",
+        "oldStatus": "RESOLVED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Test Student Verifier",
+        "notes": "Issue is not fully resolved, exam slot still clashes.",
+        "changedAt": "2026-09-12T17:55:53.806Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification LifeCycle Test Complaint\". Testing SUBMITTED -> UNDER_REVIEW -> ASSIGNED -> RESOLVED -> REOPEN cycle.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Verification LifeCycle Test Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Academics"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:53.589Z",
+        "processingTimeMs": 1
+      }
+    },
+    "assignedTo": "usr-002",
+    "resolvedAt": "2026-09-12T17:55:53.743Z"
+  },
+  {
+    "id": "COMP-107",
+    "title": "Verification Anonymous Complaint",
+    "description": "Testing anonymous complaint identity concealment and reveal workflow.",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1789235495974",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:55:53.628Z",
+    "updatedAt": "2026-09-12T17:55:54.190Z",
+    "comments": [],
+    "attachments": [
+      {
+        "id": "att-1789235754190-4t9fmc",
+        "complaintId": "COMP-107",
+        "fileName": "test-evidence-report.pdf",
+        "fileType": "application/pdf",
+        "fileSize": 1048576,
+        "uploadedBy": "usr-1789235495974",
+        "uploadedAt": "2026-09-12T17:55:54.190Z"
+      }
+    ],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235753628-xb6v7f",
+        "complaintId": "COMP-107",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1789235495974",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:55:53.628Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "General",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Verification Anonymous Complaint\". Testing anonymous complaint identity concealment and reveal workflow.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-102",
+          "title": "Verification Anonymous Complaint",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.85,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.88
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:55:53.628Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-108",
+    "title": "Faulty Air Conditioning in Lab 304",
+    "description": "The air conditioner in Computer Lab 304 has been leaking water and creating significant noise during practical sessions.",
+    "category": "Infrastructure",
+    "subcategory": "Laboratories",
+    "priority": "HIGH",
+    "status": "REOPENED",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:56:26.760Z",
+    "updatedAt": "2026-09-12T17:56:26.802Z",
+    "comments": [
+      {
+        "id": "cmt-1789235786796-3qpkz2",
+        "authorId": "usr-001",
+        "authorName": "Ganesh Patil",
+        "authorRole": "STUDENT",
+        "content": "Thank you for looking into this so quickly.",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T17:56:26.796Z"
+      },
+      {
+        "id": "cmt-1789235786799-sgpd6q",
+        "authorId": "usr-001",
+        "authorName": "Anonymous",
+        "authorRole": "STUDENT",
+        "content": "Additional anonymous note.",
+        "isAnonymous": true,
+        "createdAt": "2026-09-12T17:56:26.799Z"
+      }
+    ],
+    "attachments": [
+      {
+        "id": "att-1789235786802-ozcs37",
+        "complaintId": "COMP-108",
+        "fileName": "lab_ac_photo.jpg",
+        "fileType": "image/jpeg",
+        "fileSize": 512000,
+        "uploadedBy": "usr-001",
+        "uploadedAt": "2026-09-12T17:56:26.802Z"
+      }
+    ],
+    "assignments": [
+      {
+        "id": "asgn-1789235786768-ppiq2f",
+        "complaintId": "COMP-108",
+        "assignedBy": "usr-003",
+        "assignedTo": "usr-002",
+        "notes": "Assigned to Lab Assistant for inspection",
+        "assignedAt": "2026-09-12T17:56:26.768Z"
+      }
+    ],
+    "statusHistory": [
+      {
+        "id": "hist-1789235786762-z0lknz",
+        "complaintId": "COMP-108",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:56:26.760Z"
+      },
+      {
+        "id": "hist-1789235786765-9rjsd2",
+        "complaintId": "COMP-108",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "notes": "Reviewed by HOD",
+        "changedAt": "2026-09-12T17:56:26.765Z"
+      },
+      {
+        "id": "hist-1789235786768-ech6gs",
+        "complaintId": "COMP-108",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-003",
+        "changedByName": "usr-003",
+        "notes": "Assigned to Lab Assistant for inspection",
+        "changedAt": "2026-09-12T17:56:26.768Z"
+      },
+      {
+        "id": "hist-1789235786776-3d0puq",
+        "complaintId": "COMP-108",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "IN_PROGRESS",
+        "changedBy": "usr-002",
+        "changedByName": "Prof. Anil Kadam",
+        "notes": "Repair work commenced",
+        "changedAt": "2026-09-12T17:56:26.776Z"
+      },
+      {
+        "id": "hist-1789235786782-j0rzju",
+        "complaintId": "COMP-108",
+        "oldStatus": "IN_PROGRESS",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-002",
+        "changedByName": "Prof. Anil Kadam",
+        "notes": "AC serviced and fixed",
+        "changedAt": "2026-09-12T17:56:26.782Z"
+      },
+      {
+        "id": "hist-1789235786786-53f6nj",
+        "complaintId": "COMP-108",
+        "oldStatus": "RESOLVED",
+        "newStatus": "CLOSED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "notes": "Confirmed resolved",
+        "changedAt": "2026-09-12T17:56:26.786Z"
+      },
+      {
+        "id": "hist-1789235786791-f9xr0s",
+        "complaintId": "COMP-108",
+        "oldStatus": "CLOSED",
+        "newStatus": "REOPENED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "notes": "Issue reoccurred next day",
+        "changedAt": "2026-09-12T17:56:26.791Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Laboratories",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Faulty Air Conditioning in Lab 304\". The air conditioner in Computer Lab 304 has been leaking water and creating significant noise during practical sessions.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-101",
+          "title": "Lab 3 Air Conditioning Unit Leaking Water",
+          "similarityScore": 83,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-105",
+          "title": "Lab 3 Air Conditioning Leakage",
+          "similarityScore": 37,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Infrastructure & Safety Hazard"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:56:26.762Z",
+        "processingTimeMs": 1
+      }
+    },
+    "assignedTo": "usr-002",
+    "resolvedAt": "2026-09-12T17:56:26.782Z",
+    "closedAt": "2026-09-12T17:56:26.786Z"
+  },
+  {
+    "id": "COMP-109",
+    "title": "Discrepancy in DSA Mid-Sem Marks Sheet",
+    "description": "My DSA mid-sem marks show 12/25 but answer paper shows 18/25. Request re-evaluation.",
+    "category": "Academics",
+    "priority": "HIGH",
+    "status": "SUBMITTED",
+    "isAnonymous": false,
+    "complainantId": "usr-001",
+    "complainantName": "Ganesh Patil",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T17:56:37.054Z",
+    "updatedAt": "2026-09-12T17:56:37.054Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789235797055-mia5y0",
+        "complaintId": "COMP-109",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-001",
+        "changedByName": "Ganesh Patil",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T17:56:37.054Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Academics",
+      "suggestedSubcategory": "Marks/Results",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Computer Engineering",
+      "summary": "Grievance regarding \"Discrepancy in DSA Mid-Sem Marks Sheet\". My DSA mid-sem marks show 12/25 but answer paper shows 18/25. Request re-evaluation.",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-098",
+          "title": "Discrepancy in Mid-Sem Marks Sheet",
+          "similarityScore": 93,
+          "status": "ASSIGNED",
+          "category": "Academics"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Academic Compliance Audit"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. The academic committee will review the student marksheet and DSA answer sheet under supervision of the department head.",
+      "suggestedResolutionAction": {
+        "actionType": "SCHEDULE_INVESTIGATION",
+        "description": "Assign case officer from Computer Engineering to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.93,
+        "priorityConfidence": 0.9,
+        "departmentConfidence": 0.87,
+        "overallConfidence": 0.9
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T17:56:37.054Z",
+        "processingTimeMs": 0
+      }
+    }
+  },
+  {
+    "id": "COMP-110",
+    "title": "Lab 3 Air Conditioning Unit Leaking Water",
+    "description": "Lab 3 Air Conditioning Unit Leaking Water",
+    "category": "Academics",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-001",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T18:06:04.662Z",
+    "updatedAt": "2026-09-12T18:06:04.662Z",
+    "comments": [],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789236364663-hcjjk6",
+        "complaintId": "COMP-110",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-001",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T18:06:04.662Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Laboratories",
+      "suggestedPriority": "HIGH",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"Lab 3 Air Conditioning Unit Leaking Water\". Lab 3 Air Conditioning Unit Leaking Water",
+      "duplicateMatches": [
+        {
+          "complaintId": "COMP-105",
+          "title": "Lab 3 Air Conditioning Leakage",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-101",
+          "title": "Lab 3 Air Conditioning Unit Leaking Water",
+          "similarityScore": 100,
+          "status": "SUBMITTED",
+          "category": "Infrastructure"
+        },
+        {
+          "complaintId": "COMP-108",
+          "title": "Faulty Air Conditioning in Lab 304",
+          "similarityScore": 83,
+          "status": "REOPENED",
+          "category": "Infrastructure"
+        }
+      ],
+      "sentimentSignal": {
+        "urgencyLevel": "HIGH",
+        "sentimentScore": -0.6,
+        "detectedEmotions": [
+          "frustrated",
+          "seeking_resolution"
+        ],
+        "riskFlags": [
+          "Infrastructure & Safety Hazard"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 3
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.94,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.92
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T18:06:04.663Z",
+        "processingTimeMs": 1
+      }
+    }
+  },
+  {
+    "id": "COMP-111",
+    "title": "XYZ TEACHER BEHAVE VERY BAD IN FRONT OF THE BOYS",
+    "description": "XYZ TEACHER BEHAVE VERY BAD IN FRONT OF THE BOYS",
+    "category": "Infrastructure",
+    "priority": "MEDIUM",
+    "status": "SUBMITTED",
+    "isAnonymous": true,
+    "complainantId": "usr-1788484587852",
+    "complainantName": "Anonymous",
+    "complainantRole": "STUDENT",
+    "department": "Computer Engineering",
+    "createdAt": "2026-09-12T18:13:43.850Z",
+    "updatedAt": "2026-09-12T18:22:49.762Z",
+    "comments": [
+      {
+        "id": "cmt-1789237369762-3i3iuo",
+        "authorId": "usr-1788484587852",
+        "authorName": "Ankur Patil",
+        "authorRole": "STUDENT",
+        "content": "please sir do early",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:22:49.762Z"
+      }
+    ],
+    "attachments": [],
+    "assignments": [],
+    "statusHistory": [
+      {
+        "id": "hist-1789236823852-vbwz6z",
+        "complaintId": "COMP-111",
+        "newStatus": "SUBMITTED",
+        "changedBy": "usr-1788484587852",
+        "changedByName": "Anonymous",
+        "notes": "Complaint submitted",
+        "changedAt": "2026-09-12T18:13:43.850Z"
+      }
+    ],
+    "aiIntelligence": {
+      "suggestedCategory": "Infrastructure",
+      "suggestedSubcategory": "Classrooms",
+      "suggestedPriority": "MEDIUM",
+      "suggestedDepartment": "Campus Infrastructure & Maintenance",
+      "summary": "Grievance regarding \"XYZ TEACHER BEHAVE VERY BAD IN FRONT OF THE BOYS\". XYZ TEACHER BEHAVE VERY BAD IN FRONT OF THE BOYS",
+      "duplicateMatches": [],
+      "sentimentSignal": {
+        "urgencyLevel": "MEDIUM",
+        "sentimentScore": -0.2,
+        "detectedEmotions": [
+          "observational",
+          "inquisitive"
+        ],
+        "riskFlags": [
+          "Standard Handling"
+        ]
+      },
+      "suggestedResponse": "Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+      "suggestedResolutionAction": {
+        "actionType": "DISPATCH_MAINTENANCE",
+        "description": "Assign case officer from Campus Infrastructure & Maintenance to verify claims and implement corrective measures within SLA timeframe.",
+        "recommendedAssigneeRole": "HEAD",
+        "estimatedResolutionDays": 7
+      },
+      "confidence": {
+        "categoryConfidence": 0.92,
+        "priorityConfidence": 0.88,
+        "departmentConfidence": 0.91,
+        "overallConfidence": 0.9
+      },
+      "metadata": {
+        "model": "RSCOE-Grievance-AI-v1.4",
+        "version": "1.4.0",
+        "timestamp": "2026-09-12T18:13:43.852Z",
+        "processingTimeMs": 1
       }
     }
   }

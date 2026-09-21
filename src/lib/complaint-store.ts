@@ -17,7 +17,16 @@ const COMPLAINT_PREFIX = 'COMP';
 
 let complaintIdCounter = 100;
 function nextId() {
-  complaintIdCounter += 1;
+  const existing = loadComplaints();
+  let max = complaintIdCounter;
+  for (const c of existing) {
+    const match = c.id.match(/\d+/);
+    if (match) {
+      const num = parseInt(match[0], 10);
+      if (!isNaN(num) && num > max) max = num;
+    }
+  }
+  complaintIdCounter = max + 1;
   return `${COMPLAINT_PREFIX}-${complaintIdCounter}`;
 }
 
@@ -70,12 +79,12 @@ const COMPLAINTS_FILE = 'complaints.json';
 const STATUS_TRANSITIONS: Record<ComplaintStatus, ComplaintStatus[]> = {
   SUBMITTED: ['UNDER_REVIEW', 'REJECTED'],
   UNDER_REVIEW: ['ASSIGNED', 'RESOLVED', 'REJECTED', 'ESCALATED'],
-  ASSIGNED: ['IN_PROGRESS', 'UNDER_REVIEW', 'ESCALATED'],
+  ASSIGNED: ['IN_PROGRESS', 'RESOLVED', 'UNDER_REVIEW', 'ESCALATED'],
   IN_PROGRESS: ['RESOLVED', 'ESCALATED', 'UNDER_REVIEW'],
-  RESOLVED: ['CLOSED', 'REOPENED'],
-  CLOSED: ['REOPENED'],
-  REJECTED: ['REOPENED'],
-  ESCALATED: ['ASSIGNED', 'UNDER_REVIEW'],
+  RESOLVED: ['CLOSED', 'REOPENED', 'UNDER_REVIEW'],
+  CLOSED: ['REOPENED', 'UNDER_REVIEW'],
+  REJECTED: ['REOPENED', 'UNDER_REVIEW'],
+  ESCALATED: ['ASSIGNED', 'UNDER_REVIEW', 'RESOLVED'],
   REOPENED: ['UNDER_REVIEW', 'ASSIGNED'],
 };
 
@@ -238,6 +247,7 @@ export function updateComplaintStatus(
   changedByName: string,
   notes?: string
 ): StoredComplaint | undefined {
+  complaints = loadComplaints();
   const complaint = complaints.find((c) => c.id === id);
   if (!complaint) return undefined;
 
@@ -266,6 +276,7 @@ export function updateComplaintStatus(
     changedAt: nowIso,
   });
 
+  saveComplaints(complaints);
   return complaint;
 }
 
@@ -275,6 +286,7 @@ export function assignComplaint(
   assignedBy: string,
   notes?: string
 ): ComplaintAssignment | undefined {
+  complaints = loadComplaints();
   const complaint = complaints.find((c) => c.id === id);
   if (!complaint) return undefined;
 
@@ -305,6 +317,7 @@ export function assignComplaint(
     complaint.status = 'ASSIGNED';
   }
 
+  saveComplaints(complaints);
   return assignment;
 }
 
@@ -316,6 +329,7 @@ export function addComment(input: {
   content: string;
   isAnonymous: boolean;
 }): Comment | undefined {
+  complaints = loadComplaints();
   const complaint = complaints.find((c) => c.id === input.complaintId);
   if (!complaint) return undefined;
 
@@ -331,6 +345,7 @@ export function addComment(input: {
 
   complaint.comments.push(comment);
   complaint.updatedAt = now();
+  saveComplaints(complaints);
   return comment;
 }
 
@@ -341,6 +356,7 @@ export function addAttachment(input: {
   fileSize: number;
   uploadedBy: string;
 }): Attachment | undefined {
+  complaints = loadComplaints();
   const complaint = complaints.find((c) => c.id === input.complaintId);
   if (!complaint) return undefined;
 
@@ -356,6 +372,7 @@ export function addAttachment(input: {
 
   complaint.attachments.push(attachment);
   complaint.updatedAt = now();
+  saveComplaints(complaints);
   return attachment;
 }
 
@@ -478,6 +495,7 @@ export function deleteComplaint(id: string): boolean {
   const idx = complaints.findIndex((c) => c.id === id);
   if (idx >= 0) {
     complaints.splice(idx, 1);
+    saveComplaints(complaints);
     return true;
   }
   return false;
