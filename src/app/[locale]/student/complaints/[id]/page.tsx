@@ -10,8 +10,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { StatusBadge, PriorityBadge } from '@/components/ui/status-badge';
 import { ConfirmDialog } from '@/components/ui/confirm-dialog';
-import { ArrowLeft, CheckCircle2, Clock, User, Tag, Building, Lock, MessageSquare, Send, RefreshCw } from 'lucide-react';
-import type { Complaint, Comment } from '@/lib/types';
+import { ArrowLeft, CheckCircle2, Clock, User, Tag, Building, Lock, MessageSquare, Send, RefreshCw, Star } from 'lucide-react';
+import type { Complaint, Comment, Feedback } from '@/lib/types';
 
 const STEPS = [
   { key: 'SUBMITTED', label: 'Submitted' },
@@ -33,6 +33,14 @@ export default function StudentComplaintDetail() {
   const [newComment, setNewComment] = useState('');
   const [closed, setClosed] = useState(false);
 
+  // Feedback State
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [rating, setRating] = useState<number>(5);
+  const [hoverRating, setHoverRating] = useState<number>(0);
+  const [feedbackComments, setFeedbackComments] = useState<string>('');
+  const [submittingFeedback, setSubmittingFeedback] = useState(false);
+  const [feedbackError, setFeedbackError] = useState<string | null>(null);
+
   useEffect(() => {
     if (id) fetchComplaint();
   }, [id]);
@@ -47,6 +55,9 @@ export default function StudentComplaintDetail() {
       if (res.ok) {
         const data = await res.json();
         setComplaint(data.complaint);
+        if (data.complaint?.feedback) {
+          setFeedback(data.complaint.feedback);
+        }
       } else if (res.status === 404) {
         setFetchError('Complaint not found. It may have been deleted, or this ID does not exist.');
       } else if (res.status === 403) {
@@ -55,11 +66,51 @@ export default function StudentComplaintDetail() {
         const err = await res.json().catch(() => ({}));
         setFetchError(err.error || `Server error (${res.status}). Please try again.`);
       }
+
+      // Also check dedicated feedback endpoint
+      try {
+        const fbRes = await fetch(`/api/complaints/${id}/feedback`, { cache: 'no-store' });
+        if (fbRes.ok) {
+          const fbData = await fbRes.json();
+          if (fbData.feedback) {
+            setFeedback(fbData.feedback);
+          }
+        }
+      } catch {}
     } catch (e) {
       console.error('Failed to fetch complaint', e);
       setFetchError('Network error. Could not reach the server.');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSubmitFeedback = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!complaint) return;
+    setSubmittingFeedback(true);
+    setFeedbackError(null);
+
+    try {
+      const res = await fetch(`/api/complaints/${complaint.id}/feedback`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          rating,
+          comments: feedbackComments.trim() || undefined,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        setFeedbackError(data.error || 'Failed to submit feedback.');
+      } else {
+        setFeedback(data.feedback);
+      }
+    } catch (err) {
+      setFeedbackError('Network error. Please try again.');
+    } finally {
+      setSubmittingFeedback(false);
     }
   };
 
@@ -207,6 +258,120 @@ export default function StudentComplaintDetail() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Post-Resolution Feedback Section */}
+          {isResolved && feedback && (
+            <Card className="border-amber-500/20 bg-amber-500/5">
+              <CardHeader className="pb-3 border-b border-slate-900/50">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="text-sm font-bold text-amber-400 flex items-center gap-2">
+                    <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                    Resolution Feedback Submitted
+                  </CardTitle>
+                  <span className="text-[10px] text-slate-500">
+                    {new Date(feedback.createdAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </span>
+                </div>
+              </CardHeader>
+              <CardContent className="pt-3 space-y-2">
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-1">
+                    {[1, 2, 3, 4, 5].map((s) => (
+                      <Star
+                        key={s}
+                        className={`h-5 w-5 ${
+                          s <= feedback.rating
+                            ? 'fill-amber-400 text-amber-400'
+                            : 'text-slate-700'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-sm font-bold text-slate-200 ml-1">
+                    {feedback.rating} / 5
+                  </span>
+                </div>
+                {feedback.comments && (
+                  <p className="text-xs text-slate-300 bg-slate-900/60 p-3 rounded-lg border border-slate-800/60 leading-relaxed mt-2">
+                    &ldquo;{feedback.comments}&rdquo;
+                  </p>
+                )}
+              </CardContent>
+            </Card>
+          )}
+
+          {isResolved && !feedback && (
+            <Card className="border-blue-500/20 bg-blue-500/5">
+              <CardHeader className="pb-2 border-b border-slate-900/50">
+                <CardTitle className="text-sm font-bold text-blue-400 flex items-center gap-2">
+                  <Star className="h-4 w-4 text-blue-400" />
+                  Rate Resolution Quality
+                </CardTitle>
+                <p className="text-xs text-slate-400 mt-1">
+                  Please rate your satisfaction with the grievance resolution provided by the department.
+                </p>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <form onSubmit={handleSubmitFeedback} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-2">
+                      Your Rating:
+                    </label>
+                    <div className="flex items-center gap-1.5">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button
+                          key={star}
+                          type="button"
+                          onClick={() => setRating(star)}
+                          onMouseEnter={() => setHoverRating(star)}
+                          onMouseLeave={() => setHoverRating(0)}
+                          className="p-1 hover:scale-110 transition-transform focus:outline-none"
+                          aria-label={`Rate ${star} star`}
+                        >
+                          <Star
+                            className={`h-6 w-6 transition-colors ${
+                              star <= (hoverRating || rating)
+                                ? 'fill-amber-400 text-amber-400'
+                                : 'text-slate-700 hover:text-slate-500'
+                            }`}
+                          />
+                        </button>
+                      ))}
+                      <span className="text-xs font-semibold text-slate-300 ml-2">
+                        {hoverRating || rating} / 5 Stars
+                      </span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-300 mb-1.5">
+                      Comments or suggestions (optional):
+                    </label>
+                    <textarea
+                      value={feedbackComments}
+                      onChange={(e) => setFeedbackComments(e.target.value)}
+                      placeholder="Share any additional comments regarding how your grievance was handled..."
+                      rows={2}
+                      className="w-full bg-slate-900 border border-slate-800 rounded-lg p-2.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 resize-none"
+                    />
+                  </div>
+
+                  {feedbackError && (
+                    <p className="text-xs text-rose-400">{feedbackError}</p>
+                  )}
+
+                  <Button
+                    type="submit"
+                    size="sm"
+                    disabled={submittingFeedback}
+                    className="bg-blue-600 hover:bg-blue-500 text-white gap-1.5"
+                  >
+                    {submittingFeedback ? 'Submitting...' : 'Submit Resolution Feedback'}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          )}
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <Card className="lg:col-span-2">

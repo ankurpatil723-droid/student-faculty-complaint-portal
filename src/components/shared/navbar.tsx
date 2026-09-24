@@ -6,6 +6,8 @@ import Image from 'next/image';
 import { Bell, User, LogOut, ChevronDown, CheckCheck, AlertCircle, Info, CheckCircle, AlertTriangle, X } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 
+import { createClient } from '@/lib/supabase/client';
+
 interface StoredNotification {
   id: string;
   title: string;
@@ -79,11 +81,60 @@ export const Navbar = ({
     }
   }, []);
 
+  // ── Supabase Realtime Subscription ───────────────────────────────────────
   useEffect(() => {
     fetchNotifications();
-    const interval = setInterval(fetchNotifications, 30_000);
-    return () => clearInterval(interval);
-  }, [fetchNotifications]);
+
+    if (!user?.id) return;
+
+    const supabase = createClient();
+    const channelName = `notifications-${user.id}`;
+    const channel = supabase
+      .channel(channelName)
+      .on(
+        'postgres_changes',
+        {
+          event: 'INSERT',
+          schema: 'public',
+          table: 'notifications',
+          filter: `user_id=eq.${user.id}`,
+        },
+        (payload) => {
+          const row = payload.new as {
+            id: string;
+            title: string;
+            message: string;
+            type: 'info' | 'success' | 'warning' | 'error';
+            is_read: boolean;
+            created_at: string;
+            complaint_id?: string | null;
+          };
+
+          const newNotif: StoredNotification = {
+            id: row.id,
+            title: row.title,
+            message: row.message,
+            type: row.type || 'info',
+            read: Boolean(row.is_read),
+            createdAt: row.created_at,
+            complaintId: row.complaint_id || undefined,
+          };
+
+          setNotifications((prev) => [
+            newNotif,
+            ...prev.filter((n) => n.id !== newNotif.id),
+          ]);
+          if (!row.is_read) {
+            setUnreadCount((prev) => prev + 1);
+          }
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+  }, [fetchNotifications, user?.id]);
 
   // Close notif panel when clicking outside
   useEffect(() => {

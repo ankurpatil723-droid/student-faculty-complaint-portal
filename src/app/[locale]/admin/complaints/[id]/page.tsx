@@ -249,6 +249,7 @@ export default function AdminComplaintDetail() {
             <div className="lg:col-span-2 space-y-6">
               {/* AI Complaint Intelligence Module */}
               <AIIntelligencePanel
+                complaintId={complaint.id}
                 aiData={complaint.aiIntelligence}
                 currentCategory={complaint.category}
                 currentPriority={complaint.priority}

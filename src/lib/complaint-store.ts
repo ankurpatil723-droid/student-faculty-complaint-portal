@@ -77,15 +77,15 @@ import { readJson, writeJson } from './persist';
 const COMPLAINTS_FILE = 'complaints.json';
 
 const STATUS_TRANSITIONS: Record<ComplaintStatus, ComplaintStatus[]> = {
-  SUBMITTED: ['UNDER_REVIEW', 'REJECTED'],
+  SUBMITTED: ['UNDER_REVIEW', 'REJECTED', 'ESCALATED'],
   UNDER_REVIEW: ['ASSIGNED', 'RESOLVED', 'REJECTED', 'ESCALATED'],
   ASSIGNED: ['IN_PROGRESS', 'RESOLVED', 'UNDER_REVIEW', 'ESCALATED'],
   IN_PROGRESS: ['RESOLVED', 'ESCALATED', 'UNDER_REVIEW'],
   RESOLVED: ['CLOSED', 'REOPENED', 'UNDER_REVIEW'],
   CLOSED: ['REOPENED', 'UNDER_REVIEW'],
   REJECTED: ['REOPENED', 'UNDER_REVIEW'],
-  ESCALATED: ['ASSIGNED', 'UNDER_REVIEW', 'RESOLVED'],
-  REOPENED: ['UNDER_REVIEW', 'ASSIGNED'],
+  ESCALATED: ['ASSIGNED', 'UNDER_REVIEW', 'RESOLVED', 'IN_PROGRESS'],
+  REOPENED: ['UNDER_REVIEW', 'ASSIGNED', 'ESCALATED'],
 };
 
 function loadComplaints(): StoredComplaint[] {
@@ -278,6 +278,90 @@ export function updateComplaintStatus(
 
   saveComplaints(complaints);
   return complaint;
+}
+
+/**
+ * Merges a duplicate source complaint into a primary target complaint.
+ * Sets the source status to 'CLOSED', records linkedComplaintId & mergeNote,
+ * appends status history, and copies source comments onto the target complaint.
+ */
+export function mergeComplaints(
+  sourceId: string,
+  targetId: string,
+  actorId: string,
+  note?: string
+): StoredComplaint {
+  complaints = loadComplaints();
+  const source = complaints.find((c) => c.id === sourceId);
+  if (!source) {
+    throw new Error(`Source complaint ${sourceId} not found.`);
+  }
+
+  const target = complaints.find((c) => c.id === targetId);
+  if (!target) {
+    throw new Error(`Target complaint ${targetId} not found.`);
+  }
+
+  if (sourceId === targetId) {
+    throw new Error('Cannot merge a complaint into itself.');
+  }
+
+  const nowIso = now();
+  const oldSourceStatus = source.status;
+
+  // 1. Close source complaint and link it to target
+  source.status = 'CLOSED';
+  source.closedAt = nowIso;
+  source.updatedAt = nowIso;
+  source.linkedComplaintId = targetId;
+  source.mergeNote = note || `Merged duplicate into ${targetId}`;
+
+  source.statusHistory.push({
+    id: historyId(),
+    complaintId: sourceId,
+    oldStatus: oldSourceStatus,
+    newStatus: 'CLOSED',
+    changedBy: actorId,
+    changedByName: actorId,
+    notes: `Merged into ${targetId}${note ? `: ${note}` : ''}`,
+    changedAt: nowIso,
+  });
+
+  // 2. Copy source comments onto target complaint (append)
+  if (source.comments && source.comments.length > 0) {
+    for (const comment of source.comments) {
+      target.comments.push({
+        ...comment,
+        id: `cmt-merged-${comment.id}-${Date.now().toString(36)}`,
+        content: `[Imported from Merged Grievance ${sourceId}]: ${comment.content}`,
+      });
+    }
+  }
+
+  target.updatedAt = nowIso;
+  target.statusHistory.push({
+    id: historyId(),
+    complaintId: targetId,
+    oldStatus: target.status,
+    newStatus: target.status,
+    changedBy: actorId,
+    changedByName: actorId,
+    notes: `Merged duplicate grievance ${sourceId} into this case`,
+    changedAt: nowIso,
+  });
+
+  saveComplaints(complaints);
+
+  // Notify original complainant
+  createNotification({
+    title: `Grievance Linked & Merged (${sourceId})`,
+    message: `Your grievance ${sourceId} was identified as a duplicate and merged into active grievance ${targetId}.`,
+    type: 'info',
+    complaintId: targetId,
+    recipientId: source.complainantId,
+  });
+
+  return source;
 }
 
 export function assignComplaint(
@@ -500,3 +584,125 @@ export function deleteComplaint(id: string): boolean {
   }
   return false;
 }
+
+// ── SLA Priority Thresholds & Escalation Logic ──────────────────────────────
+export const PRIORITY_SLA_DAYS: Record<Priority, number> = {
+  URGENT: 1, // 24 hours
+  HIGH: 3,   // 72 hours
+  MEDIUM: 5, // 120 hours
+  LOW: 7,    // 168 hours
+};
+
+export interface ComplaintSlaInfo {
+  complaintId: string;
+  priority: Priority;
+  slaTargetDays: number;
+  slaTargetHours: number;
+  elapsedHours: number;
+  remainingHours: number;
+  isBreached: boolean;
+  isApproachingBreach: boolean;
+  status: ComplaintStatus;
+}
+
+/**
+ * Calculates real-time SLA metrics for a complaint based on its priority and creation/update time.
+ */
+export function getComplaintSlaInfo(
+  complaint: Complaint | StoredComplaint,
+  asOfDate: Date = new Date()
+): ComplaintSlaInfo {
+  const targetDays = PRIORITY_SLA_DAYS[complaint.priority] ?? 7;
+  const targetHours = targetDays * 24;
+
+  const createdTime = new Date(complaint.createdAt).getTime();
+  const currentTime = asOfDate.getTime();
+  const elapsedMs = Math.max(0, currentTime - createdTime);
+  const elapsedHours = elapsedMs / (1000 * 60 * 60);
+  const remainingHours = targetHours - elapsedHours;
+
+  const isTerminal = ['RESOLVED', 'CLOSED', 'REJECTED'].includes(complaint.status);
+  const isBreached = !isTerminal && remainingHours <= 0;
+  const isApproachingBreach = !isTerminal && remainingHours > 0 && remainingHours <= 24;
+
+  return {
+    complaintId: complaint.id,
+    priority: complaint.priority,
+    slaTargetDays: targetDays,
+    slaTargetHours: targetHours,
+    elapsedHours: Math.round(elapsedHours * 10) / 10,
+    remainingHours: Math.round(remainingHours * 10) / 10,
+    isBreached,
+    isApproachingBreach,
+    status: complaint.status,
+  };
+}
+
+/**
+ * Scans active, unresolved grievances and auto-escalates any that have exceeded their SLA resolution window.
+ * Transitions eligible grievances to 'ESCALATED' and dispatches alerts to Super Admins and Department Heads.
+ */
+export function checkAndEscalateOverdueComplaints(): {
+  escalatedCount: number;
+  escalatedComplaints: StoredComplaint[];
+} {
+  complaints = loadComplaints();
+  const escalatedComplaints: StoredComplaint[] = [];
+  const activeStatuses: ComplaintStatus[] = [
+    'SUBMITTED',
+    'UNDER_REVIEW',
+    'ASSIGNED',
+    'IN_PROGRESS',
+    'REOPENED',
+  ];
+
+  for (const c of complaints) {
+    if (!activeStatuses.includes(c.status)) continue;
+
+    const slaInfo = getComplaintSlaInfo(c);
+    if (slaInfo.isBreached) {
+      try {
+        const updated = updateComplaintStatus(
+          c.id,
+          'ESCALATED',
+          'system-sla-watchdog',
+          'SLA Escalation Engine',
+          `Automated SLA breach escalation: Exceeded ${slaInfo.slaTargetDays}-day (${slaInfo.slaTargetHours}h) resolution target for ${c.priority} priority grievance.`
+        );
+
+        if (updated) {
+          escalatedComplaints.push(updated);
+
+          // Trigger executive escalation notification to Super Admin
+          createNotification({
+            title: `🚨 SLA Breached: Escalated to Executive Level (${c.id})`,
+            message: `Grievance "${c.title}" (${c.priority} priority, ${c.department}) exceeded its ${slaInfo.slaTargetDays}-day SLA and has been auto-escalated.`,
+            type: 'error',
+            complaintId: c.id,
+            recipientRole: 'SUPER_ADMIN',
+          });
+
+          // Also alert the Department Head
+          if (c.department) {
+            createNotification({
+              title: `⚠️ Grievance Auto-Escalated: ${c.id}`,
+              message: `Your department's grievance "${c.title}" has breached SLA deadline and was escalated to Super Admin.`,
+              type: 'warning',
+              complaintId: c.id,
+              recipientRole: 'HEAD',
+              department: c.department,
+            });
+          }
+        }
+      } catch (err) {
+        console.error(`[checkAndEscalateOverdueComplaints] Failed to escalate ${c.id}:`, err);
+      }
+    }
+  }
+
+  return {
+    escalatedCount: escalatedComplaints.length,
+    escalatedComplaints,
+  };
+}
+

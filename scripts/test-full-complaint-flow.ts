@@ -78,7 +78,7 @@ async function runFullFlowTest() {
   // (c) Verify HOD Notification Creation
   console.log('\n--- Requirement (c): Confirm Notification Created for Assigned Head ---');
   console.log(`Simulating HOD login/fetch for ${hodUser.name} (Role: ${hodUser.role}, Department: ${hodUser.department})...`);
-  const hodNotifications = getNotificationsForUser(hodUser.role, hodUser.id, hodUser.department);
+  const hodNotifications = await getNotificationsForUser(hodUser.role, hodUser.id, hodUser.department);
 
   const matchedNotif = hodNotifications.find((n) => n.complaintId === newComplaint.id);
   assert(matchedNotif !== undefined, '(c.1) Notification for new complaint exists in HOD inbox');

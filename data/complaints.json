@@ -6,7 +6,7 @@
     "category": "Infrastructure",
     "subcategory": "Classrooms",
     "priority": "HIGH",
-    "status": "ASSIGNED",
+    "status": "CLOSED",
     "isAnonymous": false,
     "complainantId": "usr-001",
     "complainantName": "Ganesh Patil",
@@ -14,7 +14,7 @@
     "assignedTo": "usr-002",
     "department": "Computer Engineering",
     "createdAt": "2026-08-28T10:00:00Z",
-    "updatedAt": "2026-09-12T18:11:03.730Z",
+    "updatedAt": "2026-09-24T18:15:31.143Z",
     "comments": [
       {
         "id": "cmt-1789236663730-lrvxre",
@@ -141,6 +141,16 @@
         "changedByName": "Dr. Suresh Mane",
         "notes": "Status updated",
         "changedAt": "2026-09-12T18:10:27.762Z"
+      },
+      {
+        "id": "hist-1790273731144-m8yzc5",
+        "complaintId": "COMP-101",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "CLOSED",
+        "changedBy": "admin-tester",
+        "changedByName": "admin-tester",
+        "notes": "Merged into COMP-104: Automated AI duplicate grievance merge",
+        "changedAt": "2026-09-24T18:15:31.143Z"
       }
     ],
     "aiIntelligence": {
@@ -181,7 +191,10 @@
         "processingTimeMs": 3
       }
     },
-    "resolvedAt": "2026-09-12T17:55:31.151Z"
+    "resolvedAt": "2026-09-12T17:55:31.151Z",
+    "closedAt": "2026-09-24T18:15:31.143Z",
+    "linkedComplaintId": "COMP-104",
+    "mergeNote": "Automated AI duplicate grievance merge"
   },
   {
     "id": "COMP-104",
@@ -198,7 +211,7 @@
     "assignedTo": "Prof. Anil Kadam",
     "department": "Computer Engineering",
     "createdAt": "2026-08-18T09:30:00Z",
-    "updatedAt": "2026-08-19T11:00:00Z",
+    "updatedAt": "2026-09-24T18:15:31.143Z",
     "comments": [
       {
         "id": "cmt-01",
@@ -208,6 +221,15 @@
         "content": "Acknowledged. I have forwarded this to the infrastructure committee. Replacement will be arranged within 3 working days.",
         "isAnonymous": false,
         "createdAt": "2026-08-19T11:00:00Z"
+      },
+      {
+        "id": "cmt-merged-cmt-1789236663730-lrvxre-mufur7t4",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "[Imported from Merged Grievance COMP-101]: Acknowledged. Maintenance team has been notified regarding the equipment issue. Replacement or repair will be completed within 3 working days.",
+        "isAnonymous": false,
+        "createdAt": "2026-09-12T18:11:03.730Z"
       }
     ],
     "attachments": [],
@@ -231,6 +253,16 @@
         "changedByName": "Dr. Suresh Mane",
         "changedAt": "2026-08-19T11:00:00.000Z",
         "notes": "Status updated by HOD"
+      },
+      {
+        "id": "hist-1790273731144-73v9o9",
+        "complaintId": "COMP-104",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "UNDER_REVIEW",
+        "changedBy": "admin-tester",
+        "changedByName": "admin-tester",
+        "notes": "Merged duplicate grievance COMP-101 into this case",
+        "changedAt": "2026-09-24T18:15:31.143Z"
       }
     ],
     "aiIntelligence": {
@@ -447,17 +479,60 @@
     "category": "Infrastructure",
     "subcategory": "Laboratories",
     "priority": "MEDIUM",
-    "status": "SUBMITTED",
+    "status": "RESOLVED",
     "isAnonymous": false,
     "complainantId": "usr-002",
     "complainantName": "Prof. Anil Kadam",
     "complainantRole": "TEACHER",
     "department": "Computer Engineering",
     "createdAt": "2026-08-19T08:00:00Z",
-    "updatedAt": "2026-08-19T08:00:00Z",
-    "comments": [],
+    "updatedAt": "2026-09-24T17:51:16.825Z",
+    "comments": [
+      {
+        "id": "cmt-1790272156819-aeptoa",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "hello bhai karo jaldi",
+        "isAnonymous": false,
+        "createdAt": "2026-09-24T17:49:16.819Z"
+      },
+      {
+        "id": "cmt-1790272249537-1n4a1n",
+        "authorId": "usr-003",
+        "authorName": "Dr. Suresh Mane",
+        "authorRole": "HEAD",
+        "content": "ayeee kar lavdya lavkar",
+        "isAnonymous": false,
+        "createdAt": "2026-09-24T17:50:49.537Z"
+      },
+      {
+        "id": "cmt-1790272276825-dxh2rf",
+        "authorId": "usr-002",
+        "authorName": "Prof. Anil Kadam",
+        "authorRole": "TEACHER",
+        "content": "bar",
+        "isAnonymous": false,
+        "createdAt": "2026-09-24T17:51:16.825Z"
+      }
+    ],
     "attachments": [],
-    "assignments": [],
+    "assignments": [
+      {
+        "id": "asgn-1790272124192-uz071u",
+        "complaintId": "COMP-105",
+        "assignedBy": "usr-003",
+        "assignedTo": "Anil Kadam",
+        "assignedAt": "2026-09-24T17:48:44.192Z"
+      },
+      {
+        "id": "asgn-1790272226332-bo1f5k",
+        "complaintId": "COMP-105",
+        "assignedBy": "usr-003",
+        "assignedTo": "Anil Kadam",
+        "assignedAt": "2026-09-24T17:50:26.332Z"
+      }
+    ],
     "statusHistory": [
       {
         "id": "hist-1787990214217-uydzqq",
@@ -467,6 +542,36 @@
         "changedByName": "Prof. Anil Kadam",
         "changedAt": "2026-08-19T08:00:00.000Z",
         "notes": "Complaint submitted"
+      },
+      {
+        "id": "hist-1790272124192-6adqkj",
+        "complaintId": "COMP-105",
+        "oldStatus": "SUBMITTED",
+        "newStatus": "ASSIGNED",
+        "changedBy": "usr-003",
+        "changedByName": "usr-003",
+        "notes": "Complaint assigned",
+        "changedAt": "2026-09-24T17:48:44.192Z"
+      },
+      {
+        "id": "hist-1790272132297-d11tu3",
+        "complaintId": "COMP-105",
+        "oldStatus": "ASSIGNED",
+        "newStatus": "IN_PROGRESS",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "notes": "Status updated",
+        "changedAt": "2026-09-24T17:48:52.297Z"
+      },
+      {
+        "id": "hist-1790272213373-xgaisf",
+        "complaintId": "COMP-105",
+        "oldStatus": "IN_PROGRESS",
+        "newStatus": "RESOLVED",
+        "changedBy": "usr-003",
+        "changedByName": "Dr. Suresh Mane",
+        "notes": "Status updated",
+        "changedAt": "2026-09-24T17:50:13.373Z"
       }
     ],
     "aiIntelligence": {
@@ -506,7 +611,9 @@
         "timestamp": "2026-08-29T07:56:54.218Z",
         "processingTimeMs": 1
       }
-    }
+    },
+    "assignedTo": "Anil Kadam",
+    "resolvedAt": "2026-09-24T17:50:13.373Z"
   },
   {
     "id": "COMP-095",
@@ -594,7 +701,7 @@
     "category": "Academics",
     "subcategory": "Marks/Results",
     "priority": "URGENT",
-    "status": "UNDER_REVIEW",
+    "status": "REJECTED",
     "isAnonymous": true,
     "complainantId": "usr-anon",
     "complainantName": "Anonymous Teacher",
@@ -602,7 +709,7 @@
     "assignedTo": "Director Office",
     "department": "Computer Engineering",
     "createdAt": "2026-08-05T16:00:00Z",
-    "updatedAt": "2026-09-12T18:20:03.124Z",
+    "updatedAt": "2026-09-24T17:52:59.878Z",
     "comments": [
       {
         "id": "cmt-1789236523810-f4p1s2",
@@ -640,6 +747,13 @@
         "assignedBy": "usr-003",
         "assignedTo": "Director Office",
         "assignedAt": "2026-09-12T18:08:34.681Z"
+      },
+      {
+        "id": "asgn-1790272379878-gdp138",
+        "complaintId": "COMP-072",
+        "assignedBy": "usr-004",
+        "assignedTo": "Director Office",
+        "assignedAt": "2026-09-24T17:52:59.878Z"
       }
     ],
     "statusHistory": [
@@ -671,6 +785,16 @@
         "changedByName": "Dr. Rajesh Deshmukh",
         "notes": "Status updated",
         "changedAt": "2026-09-12T18:17:26.586Z"
+      },
+      {
+        "id": "hist-1790272370805-7bpzbh",
+        "complaintId": "COMP-072",
+        "oldStatus": "UNDER_REVIEW",
+        "newStatus": "REJECTED",
+        "changedBy": "usr-004",
+        "changedByName": "Dr. Rajesh Deshmukh",
+        "notes": "Status updated",
+        "changedAt": "2026-09-24T17:52:50.805Z"
       }
     ],
     "aiIntelligence": {
@@ -2102,8 +2226,18 @@
     "complainantRole": "STUDENT",
     "department": "Computer Engineering",
     "createdAt": "2026-09-12T18:06:04.662Z",
-    "updatedAt": "2026-09-12T18:06:04.662Z",
-    "comments": [],
+    "updatedAt": "2026-09-24T17:46:25.171Z",
+    "comments": [
+      {
+        "id": "cmt-1790271985171-6y05ta",
+        "authorId": "usr-001",
+        "authorName": "Ganesh Patil",
+        "authorRole": "STUDENT",
+        "content": "hello sir ,what happen",
+        "isAnonymous": false,
+        "createdAt": "2026-09-24T17:46:25.171Z"
+      }
+    ],
     "attachments": [],
     "assignments": [],
     "statusHistory": [

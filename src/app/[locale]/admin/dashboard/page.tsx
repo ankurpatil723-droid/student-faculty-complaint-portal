@@ -12,7 +12,7 @@ import { Modal } from '@/components/ui/modal';
 import {
   ShieldAlert, Layers, Clock, CheckCircle, AlertTriangle, Lock,
   ArrowRight, Eye, TrendingUp, Download, Calendar, Filter, BarChart3,
-  Building, RefreshCw, FileSpreadsheet, FileJson
+  Building, RefreshCw, FileSpreadsheet, FileJson, Star
 } from 'lucide-react';
 import { DEMO_ADMIN, ADMIN_NOTIFICATIONS } from '@/lib/demo-data';
 import type { CategoryType, Priority, ComplaintStatus } from '@/lib/types';
@@ -264,7 +264,7 @@ export default function AdminDashboard() {
           </Card>
 
           {/* Executive KPI Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8 gap-3">
             {[
               { label: 'Total Complaints', value: analytics?.total ?? 0, color: 'text-white', sub: 'Filtered dataset' },
               { label: 'Pending', value: analytics?.pending ?? 0, color: 'text-sky-400', sub: 'Awaiting resolution' },
@@ -276,6 +276,18 @@ export default function AdminDashboard() {
                 value: analytics ? `${analytics.avgResolutionTimeDays}d` : '0d',
                 color: 'text-purple-400',
                 sub: analytics ? `~${analytics.avgResolutionTimeHours} hours` : '0 hours',
+              },
+              {
+                label: 'Avg. Resolution Rating',
+                value: analytics?.avgResolutionRating ? `${analytics.avgResolutionRating} / 5 ★` : '—',
+                color: 'text-amber-400',
+                sub: 'Student feedback',
+              },
+              {
+                label: 'Feedback Response Rate',
+                value: analytics ? `${analytics.feedbackResponseRate}%` : '0%',
+                color: 'text-emerald-400',
+                sub: 'Of resolved cases',
               },
             ].map((s, i) => (
               <Card key={i} className="bg-slate-950 border-slate-850">

@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 
 interface AIIntelligencePanelProps {
+  complaintId?: string;
   aiData?: AIIntelligenceData;
   currentCategory: CategoryType;
   currentPriority: Priority;
@@ -29,9 +30,11 @@ interface AIIntelligencePanelProps {
   onApplySuggestions?: (newCategory: CategoryType, newPriority: Priority, newDept: string) => void;
   onAdoptResponse?: (responseDraft: string) => void;
   onExecuteAction?: (actionPlan: string) => void;
+  onMergeDuplicate?: (targetComplaintId: string) => void;
 }
 
 export const AIIntelligencePanel: React.FC<AIIntelligencePanelProps> = ({
+  complaintId,
   aiData,
   currentCategory,
   currentPriority,
@@ -39,10 +42,14 @@ export const AIIntelligencePanel: React.FC<AIIntelligencePanelProps> = ({
   onApplySuggestions,
   onAdoptResponse,
   onExecuteAction,
+  onMergeDuplicate,
 }) => {
   const [appliedBadge, setAppliedBadge] = useState(false);
   const [adoptedBadge, setAdoptedBadge] = useState(false);
   const [actionModal, setActionModal] = useState(false);
+  const [mergingId, setMergingId] = useState<string | null>(null);
+  const [mergedIds, setMergedIds] = useState<string[]>([]);
+  const [mergeMsg, setMergeMsg] = useState<string | null>(null);
 
   if (!aiData) {
     return (
@@ -155,21 +162,72 @@ export const AIIntelligencePanel: React.FC<AIIntelligencePanelProps> = ({
 
           {/* Duplicate Complaint Detection */}
           <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-xs space-y-1.5">
-            <span className="font-semibold text-slate-300 flex items-center justify-between">
-              <span>Duplicate Grievance Detection</span>
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-slate-300">Duplicate Grievance Detection</span>
               <span className="text-[10px] text-slate-500">{duplicateMatches.length} Matches</span>
-            </span>
+            </div>
+            {mergeMsg && (
+              <p className="text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-1 rounded">
+                ✓ {mergeMsg}
+              </p>
+            )}
             {duplicateMatches.length === 0 ? (
               <p className="text-[11px] text-slate-400 py-1">✓ No active duplicate complaints detected.</p>
             ) : (
               <div className="space-y-1.5 pt-1">
-                {duplicateMatches.map((dup) => (
-                  <div key={dup.complaintId} className="flex items-center justify-between p-1.5 rounded bg-slate-950 border border-slate-800 text-[11px]">
-                    <span className="font-mono text-blue-400 font-semibold">{dup.complaintId}</span>
-                    <span className="text-slate-300 truncate max-w-[140px]">{dup.title}</span>
-                    <span className="text-amber-400 font-bold">{dup.similarityScore}% Match</span>
-                  </div>
-                ))}
+                {duplicateMatches.map((dup) => {
+                  const isMerged = mergedIds.includes(dup.complaintId);
+                  return (
+                    <div
+                      key={dup.complaintId}
+                      className="flex items-center justify-between p-2 rounded-lg bg-slate-950 border border-slate-800 text-[11px] gap-2"
+                    >
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <span className="font-mono text-blue-400 font-semibold shrink-0">{dup.complaintId}</span>
+                        <span className="text-slate-300 truncate max-w-[130px]">{dup.title}</span>
+                        <span className="text-amber-400 font-bold shrink-0">{dup.similarityScore}% Match</span>
+                      </div>
+                      {isMerged ? (
+                        <span className="text-[10px] text-emerald-400 font-semibold shrink-0 flex items-center gap-1">
+                          <CheckCircle2 className="h-3 w-3" /> Merged
+                        </span>
+                      ) : (
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          disabled={mergingId === dup.complaintId}
+                          onClick={async () => {
+                            if (onMergeDuplicate) {
+                              onMergeDuplicate(dup.complaintId);
+                              setMergedIds((prev) => [...prev, dup.complaintId]);
+                              return;
+                            }
+                            if (!complaintId) return;
+                            setMergingId(dup.complaintId);
+                            try {
+                              const res = await fetch(`/api/complaints/${complaintId}/merge`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ targetId: dup.complaintId }),
+                              });
+                              if (res.ok) {
+                                setMergedIds((prev) => [...prev, dup.complaintId]);
+                                setMergeMsg(`Merged into ${dup.complaintId}`);
+                              }
+                            } catch (e) {
+                              console.error('Failed to merge', e);
+                            } finally {
+                              setMergingId(null);
+                            }
+                          }}
+                          className="h-6 px-2 text-[10px] border-slate-700 hover:bg-slate-800 hover:text-white shrink-0"
+                        >
+                          {mergingId === dup.complaintId ? 'Merging...' : 'Merge Duplicate'}
+                        </Button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

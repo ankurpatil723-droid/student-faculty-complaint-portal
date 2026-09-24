@@ -164,6 +164,17 @@ export interface Complaint {
   assignments: ComplaintAssignment[];
   statusHistory: StatusHistoryEntry[];
   aiIntelligence?: AIIntelligenceData;
+  feedback?: Feedback;
+  linkedComplaintId?: string;
+  mergeNote?: string;
+}
+
+export interface Feedback {
+  id: string;
+  complaintId: string;
+  rating: number;
+  comments?: string;
+  createdAt: string;
 }
 
 export interface Notification {
@@ -174,6 +185,18 @@ export interface Notification {
   read: boolean;
   createdAt: string;
   complaintId?: string;
+}
+
+export interface ComplaintSlaInfo {
+  complaintId: string;
+  priority: Priority;
+  slaTargetDays: number;
+  slaTargetHours: number;
+  elapsedHours: number;
+  remainingHours: number;
+  isBreached: boolean;
+  isApproachingBreach: boolean;
+  status: ComplaintStatus;
 }
 
 export interface User {

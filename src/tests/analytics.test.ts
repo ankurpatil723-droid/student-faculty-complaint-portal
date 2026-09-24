@@ -109,6 +109,22 @@ test('Generates valid CSV report headers and content', () => {
   assert.ok(lines[0].includes('Department'), 'CSV header should contain Department');
 });
 
+// Test 8: Feedback and Resolution Quality Metrics
+test('Includes avgResolutionRating and feedbackResponseRate fields', () => {
+  const summary = calculateAnalytics();
+
+  assert.ok(
+    summary.avgResolutionRating === null || (summary.avgResolutionRating >= 1 && summary.avgResolutionRating <= 5),
+    'Avg resolution rating should be null or between 1 and 5'
+  );
+  assert.ok(
+    typeof summary.feedbackResponseRate === 'number' &&
+      summary.feedbackResponseRate >= 0 &&
+      summary.feedbackResponseRate <= 100,
+    'Feedback response rate should be a percentage between 0 and 100'
+  );
+});
+
 console.log(`\n─────────────────────────────────────────`);
 console.log(`  Results: ${passCount} passed, ${failCount} failed`);
 console.log(`─────────────────────────────────────────\n`);

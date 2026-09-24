@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import './globals.css';
 import { AuthProvider } from '@/context/AuthContext';
 
@@ -7,13 +9,19 @@ export const metadata: Metadata = {
   description: 'JSPM Rajarshi Shahu College of Engineering, Tathawade, Pune. Grievance Redressal Portal.',
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const { locale } = params;
+  // Fetch messages for the current locale
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         {/* Modern Typography from Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,9 +36,11 @@ export default function RootLayout({
         <script src="https://accounts.google.com/gsi/client" async defer></script>
       </head>
       <body className="min-h-screen bg-[#020617] text-slate-100 antialiased font-['Inter',sans-serif]">
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

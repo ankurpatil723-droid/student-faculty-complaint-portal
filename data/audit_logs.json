@@ -38,5 +38,25 @@
     "complainantId": "usr-001",
     "disclosureReason": "please show identity its very crusial",
     "disclosedAt": "2026-09-12T18:12:19.899Z"
+  },
+  {
+    "id": "audit-1790272078413-mq9nthg",
+    "actorId": "usr-003",
+    "actorName": "Dr. Suresh Mane",
+    "actorRole": "HEAD",
+    "complaintId": "COMP-105",
+    "complainantId": "usr-002",
+    "disclosureReason": "reveal the following person identity",
+    "disclosedAt": "2026-09-24T17:47:58.413Z"
+  },
+  {
+    "id": "audit-1790272360684-yt077hf",
+    "actorId": "usr-004",
+    "actorName": "Dr. Rajesh Deshmukh",
+    "actorRole": "SUPER_ADMIN",
+    "complaintId": "COMP-072",
+    "complainantId": "usr-anon",
+    "disclosureReason": "kar reveal",
+    "disclosedAt": "2026-09-24T17:52:40.684Z"
   }
 ]

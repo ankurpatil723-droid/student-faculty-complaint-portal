@@ -1,4 +1,5 @@
 import { getAllComplaints, StoredComplaint } from './complaint-store';
+import { getAllFeedback } from './feedback-store';
 import type { ComplaintStatus, Priority, CategoryType } from './types';
 
 export interface AnalyticsFilter {
@@ -44,6 +45,8 @@ export interface AnalyticsSummary {
   rejected: number;
   avgResolutionTimeHours: number;
   avgResolutionTimeDays: number;
+  avgResolutionRating: number | null;
+  feedbackResponseRate: number;
   byCategory: Record<string, number>;
   byDepartment: Record<string, number>;
   byPriority: Record<string, number>;
@@ -225,6 +228,21 @@ export function calculateAnalytics(filter: AnalyticsFilter = {}): AnalyticsSumma
   const slaComplianceRate =
     totalSlaEvaluated > 0 ? Math.round((withinSlaCount / totalSlaEvaluated) * 1000) / 10 : 100;
 
+  // Feedback & Resolution Quality Metrics
+  const allFeedbacks = getAllFeedback();
+  const datasetComplaintIds = new Set(dataset.map((c) => c.id));
+  const relevantFeedbacks = allFeedbacks.filter((f) => datasetComplaintIds.has(f.complaintId));
+  const feedbackCount = relevantFeedbacks.length;
+  const totalRatingSum = relevantFeedbacks.reduce((sum, f) => sum + f.rating, 0);
+  const avgResolutionRating =
+    feedbackCount > 0 ? Math.round((totalRatingSum / feedbackCount) * 10) / 10 : null;
+
+  const resolvedAndClosedCount = dataset.filter((c) => ['RESOLVED', 'CLOSED'].includes(c.status)).length;
+  const feedbackResponseRate =
+    resolvedAndClosedCount > 0
+      ? Math.round((feedbackCount / resolvedAndClosedCount) * 1000) / 10
+      : 0;
+
   return {
     total,
     pending,
@@ -234,6 +252,8 @@ export function calculateAnalytics(filter: AnalyticsFilter = {}): AnalyticsSumma
     rejected,
     avgResolutionTimeHours,
     avgResolutionTimeDays,
+    avgResolutionRating,
+    feedbackResponseRate,
     byCategory,
     byDepartment,
     byPriority,

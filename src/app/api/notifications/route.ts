@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   if (!auth) return unauthorized();
   const { session } = auth;
 
-  const notifications = getNotificationsForUser(session.role, session.userId, session.department);
+  const notifications = await getNotificationsForUser(session.role, session.userId, session.department);
 
   return NextResponse.json({
     success: true,
@@ -34,8 +34,8 @@ export async function PATCH(req: NextRequest) {
   const { id, markAll } = body as { id?: string; markAll?: boolean };
 
   if (markAll) {
-    const count = markAllNotificationsRead(session.role, session.userId, session.department);
-    const remaining = getNotificationsForUser(session.role, session.userId, session.department);
+    const count = await markAllNotificationsRead(session.role, session.userId, session.department);
+    const remaining = await getNotificationsForUser(session.role, session.userId, session.department);
     return NextResponse.json({
       success: true,
       markedRead: count,
@@ -46,14 +46,13 @@ export async function PATCH(req: NextRequest) {
 
   if (!id) return badRequest('Provide either { id } to mark one read, or { markAll: true }.');
 
-  const found = markNotificationRead(id);
+  const found = await markNotificationRead(id);
   if (!found) return NextResponse.json({ success: false, error: 'Notification not found.' }, { status: 404 });
 
-  const updated = getNotificationsForUser(session.role, session.userId, session.department);
+  const updated = await getNotificationsForUser(session.role, session.userId, session.department);
   return NextResponse.json({
     success: true,
     unreadCount: updated.filter((n) => !n.read).length,
     notifications: updated,
   });
 }
-
